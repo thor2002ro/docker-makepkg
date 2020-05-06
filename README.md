@@ -17,17 +17,19 @@ services:
  - docker
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/pkg whynothugo/makepkg
+  - docker run -v $TRAVIS_BUILD_DIR:/pkg makepkg
 ```
 
 Usage locally
 -------------
 
 ```
-docker run -v $PWD:/pkg whynothugo/makepkg
+docker build -f Dockerfile -t makepkg .
+
+docker run -v $PWD:/pkg makepkg
 
 # Or export the built package file to the workding directory
-docker run -e EXPORT_PKG=1 -v $PWD:/pkg whynothugo/makepkg
+docker run -e EXPORT_PKG=1 -v $PWD:/pkg makepkg
 ```
 
 Usage with GitLab CI
