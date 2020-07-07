@@ -23,9 +23,15 @@ script:
 Usage locally
 -------------
 
+Build the image for the container:
+
 ```
 docker build -f Dockerfile -t makepkg .
+```
 
+Then change into the directory of the package to build or replace `$PWD` with the path to the package source:
+
+```
 docker run -v $PWD:/pkg makepkg
 
 # Or export the built package file to the workding directory
