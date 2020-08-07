@@ -32,10 +32,10 @@ docker build -f Dockerfile -t makepkg .
 Then change into the directory of the package to build or replace `$PWD` with the path to the package source:
 
 ```
-docker run -v $PWD:/pkg makepkg
+docker run --rm -v $PWD:/pkg makepkg
 
 # Or export the built package file to the workding directory
-docker run -e EXPORT_PKG=1 -v $PWD:/pkg makepkg
+docker run --rm -e EXPORT_PKG=1 -v $PWD:/pkg makepkg
 ```
 
 Usage with GitLab CI
