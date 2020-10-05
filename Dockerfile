@@ -20,6 +20,7 @@ WORKDIR /home/notroot
 
 # Auto-fetch GPG keys (for checking signatures):
 RUN mkdir .gnupg && \
+    chmod 0700 .gnupg && \
     touch .gnupg/gpg.conf && \
     echo "keyserver-options auto-key-retrieve" > .gnupg/gpg.conf
 
