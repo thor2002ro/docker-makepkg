@@ -2,14 +2,14 @@
 
 set -e
 
-SRC_DIR=/pkg
+SRC_DIR=$PWD
 
 if [ -n "$1" ]
 then
   SRC_DIR=$1
 fi
 
-if ! [ -e "$SRC_DIR" ]
+if ! [ -e "$SRC_DIR/PKGBUILD" ]
 then
   echo "source location $SRC_DIR not accessible."
   exit 1
