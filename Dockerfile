@@ -31,4 +31,4 @@ RUN git clone https://aur.archlinux.org/yay-bin.git && \
 
 # Build the package
 WORKDIR /pkg
-CMD /bin/sh /run.sh
+CMD /bin/bash /run.sh
