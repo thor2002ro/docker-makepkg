@@ -11,6 +11,8 @@ RUN pacman -Sy --noconfirm archlinux-keyring && \
     pacman -Sy --noconfirm base-devel git && \
     pacman -Syu --noconfirm
 
+COPY makepkg.conf /etc/makepkg.conf
+
 # Allow notroot to run stuff as root (to install dependencies):
 RUN echo "notroot ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/notroot
 
