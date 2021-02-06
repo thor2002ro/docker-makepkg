@@ -26,11 +26,6 @@ RUN mkdir .gnupg && \
     touch .gnupg/gpg.conf && \
     echo "keyserver-options auto-key-retrieve" > .gnupg/gpg.conf
 
-# Install yay (for building AUR dependencies):
-RUN git clone https://aur.archlinux.org/yay-bin.git && \
-    cd yay-bin && \
-    makepkg --noconfirm --syncdeps --rmdeps --install --clean
-
 # Build the package
 WORKDIR /pkg
 CMD /bin/bash /run.sh
