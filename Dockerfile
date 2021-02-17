@@ -1,15 +1,11 @@
-FROM archlinux/base
+FROM docker.io/archlinux/base
 
 COPY run.sh /run.sh
 
 # makepkg cannot (and should not) be run as root:
 RUN useradd -m notroot
 
-# Generally, refreshing without sync'ing is discouraged, but we've a clean
-# environment here.
-RUN pacman -Sy --noconfirm archlinux-keyring && \
-    pacman -Sy --noconfirm base-devel git && \
-    pacman -Syu --noconfirm
+RUN pacman -Syu --noconfirm base-devel sudo
 
 COPY makepkg.conf /etc/makepkg.conf
 
