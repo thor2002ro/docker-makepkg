@@ -1,7 +1,7 @@
 docker-makepkg
 ==============
 
-This docker image is intended to tests `PKGBUILDs`, by installing dependencies
+This docker image is intended to test `PKGBUILDs`, by installing dependencies
 and running `makepkg -f` in a clean Arch installation. It is intended to be
 used by packagers, both via CI, and on non-ArchLinux environments.
 
@@ -48,7 +48,7 @@ Extra details
 -------------
 
 * `base-devel` is preinstalled.
-* All `depends` will be installed (including AUR packages using [yay](https://github.com/Jguer/yay)).
+* All `depends` will be installed (excluding AUR packages).
 * GPG keys used to verify signatures are auto-fetched.
 
 Licence
