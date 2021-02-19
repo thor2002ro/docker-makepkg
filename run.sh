@@ -16,8 +16,8 @@ then
 fi
 
 # Make a copy so we never alter the original
-cp -r "$SRC_DIR" /tmp/pkg
-cd /tmp/pkg
+cp -rT "$SRC_DIR" /work
+cd /work
 
 # Do the actual building
 makepkg --noconfirm --syncdeps --force

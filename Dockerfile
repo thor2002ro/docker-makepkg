@@ -12,6 +12,8 @@ COPY makepkg.conf /etc/makepkg.conf
 # Allow notroot to run stuff as root (to install dependencies):
 RUN echo "notroot ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/notroot
 
+RUN mkdir /work && chown notroot /work
+
 # Continue execution (and CMD) as notroot:
 USER notroot
 WORKDIR /home/notroot
