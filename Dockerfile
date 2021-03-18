@@ -5,7 +5,9 @@ COPY run.sh /run.sh
 # makepkg cannot (and should not) be run as root:
 RUN useradd -m notroot
 
-RUN pacman -Syu --noconfirm base-devel sudo
+RUN pacman -Syu --noconfirm base-devel sudo reflector
+
+RUN reflector -p http,https -l 10 -f 4 --save /etc/pacman.d/mirrorlist
 
 COPY makepkg.conf /etc/makepkg.conf
 
