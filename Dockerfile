@@ -1,4 +1,4 @@
-FROM docker.io/archlinux/base
+FROM docker.io/library/archlinux:base
 
 COPY run.sh /run.sh
 
