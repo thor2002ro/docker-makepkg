@@ -20,7 +20,7 @@ cp -rT "$SRC_DIR" /work
 cd /work
 
 # update mirrors
-sudo reflector -p http,https -l 10 -f 4 --save /etc/pacman.d/mirrorlist
+sudo reflector --verbose --protocol http,https --age 6 --latest 10 --fastest 4 --save /etc/pacman.d/mirrorlist
 
 # Do the actual building
 makepkg --noconfirm --syncdeps --force
