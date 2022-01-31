@@ -1,11 +1,11 @@
-FROM docker.io/library/archlinux:base
+FROM docker.io/library/archlinux:base-devel
 
 COPY run.sh /run.sh
 
 # makepkg cannot (and should not) be run as root:
 RUN useradd -m notroot
 
-RUN pacman -Syu --noconfirm base-devel sudo reflector
+RUN pacman -Syu --noconfirm sudo reflector
 
 RUN reflector -p http,https -l 10 -f 4 --save /etc/pacman.d/mirrorlist
 
