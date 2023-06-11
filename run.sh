@@ -22,6 +22,9 @@ cd /work
 # update mirrors
 sudo reflector --verbose --protocol http,https --age 6 --latest 10 --fastest 4 --save /etc/pacman.d/mirrorlist
 
+# update packages
+sudo pacman -Syu 
+
 # Do the actual building
 makepkg --noconfirm --syncdeps --force
 
