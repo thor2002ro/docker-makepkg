@@ -16,14 +16,14 @@ then
 fi
 
 # Make a copy so we never alter the original
-cp -rT "$SRC_DIR" /work
-cd /work
+cp -rT "$SRC_DIR" /tmp/work
+cd /tmp/work
 
 # update mirrors
 sudo reflector --verbose --protocol http,https --age 6 --latest 10 --fastest 4 --save /etc/pacman.d/mirrorlist
 
 # update packages
-sudo pacman -Syu 
+sudo pacman -Syyuu --noconfirm
 
 # Do the actual building
 makepkg --noconfirm --syncdeps --force

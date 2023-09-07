@@ -9,12 +9,14 @@ RUN pacman -Syu --noconfirm sudo reflector
 
 RUN reflector -p http,https -l 10 -f 4 --save /etc/pacman.d/mirrorlist
 
+RUN pacman -Syyuu --noconfirm
+
 COPY makepkg.conf /etc/makepkg.conf
 
 # Allow notroot to run stuff as root (to install dependencies):
 RUN echo "notroot ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/notroot
 
-RUN mkdir /work && chown notroot /work
+RUN mkdir /tmp/work && chown notroot /tmp/work
 
 # Continue execution (and CMD) as notroot:
 USER notroot
